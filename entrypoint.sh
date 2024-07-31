@@ -42,12 +42,15 @@ socksmethod: none
 clientmethod: none
 
 client pass {
-from: 0.0.0.0/0 to: 0.0.0.0/0
-log: error
+   from: 0/0 to: 0/0
 }
-
 socks pass {
-from: 0.0.0.0/0 to: 0.0.0.0/0
+    from: 0.0.0.0/0 to: ::/0
+    protocol: tcp udp
+}
+socks pass {
+    from: ::/0 to: ::/0
+    protocol: tcp udp
 }
 EOF
 
